@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Through Christ United</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+    
+<body>
+    <header style="color: black;" class=" w3-bar w3-pink w3-wide w3-padding w3-card">
+        <h1 class="w3-left">Through Christ United</h1>
+
+        <a href="services_index.html" class="w3 padding-16 w3-hover-pink w3-right w3-bar-item w3-button">Who Are We?</a>
+        <a href="booking_index.html" class="w3-right w3-bar-item w3-hover-pink w3-button">Ask Us A Question</a>
+        <a href="contact_index.html" class="w3-right w3-bar-item w3-hover-pink w3-button">Contact</a>
+    </header>
+
+    <div class="chat-title">
+    
+    <h2>Chat With Us</h2>
+
+    </div>
+    
+    <div style="justify-content: center; border: 1px solid; class="card">
+    <div class="chat-header">Chat</div>
+      <div class="chat-window">
+        <ul class="message-list"></ul>
+      </div>
+      <div class="chat-input">
+          <input type="text" class="message-input" placeholder="Type your message here">
+          <button class="send-button">Send</button>
+      </div>
+    </div>
+  
+</body>
+</html>
+
+<script>
+    const messageList = document.querySelector('.message-list');
+    const messageInput = document.querySelector('.message-input');
+    const sendButton = document.querySelector('.send-button');
+
+    sendButton.addEventListener('click', () => {
+        const messageText = messageInput.value;
+        if (messageText.trim() !== '') {
+            const messageItem = document.createElement('li');
+            const timeSent = new Date().toLocaleTimeString();
+            messageItem.innerHTML = `<div class="message-bubble">${messageText}<span class="time">${timeSent}</span><span class="seen">Seen</span></div>`;
+            messageList.appendChild(messageItem);
+            messageInput.value = '';
+        }
+    });
+</script>
